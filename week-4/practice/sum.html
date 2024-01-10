@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUM -DOM</title>
+</head>
+<body>
+    <div>
+        <input id="first" type="text" placeholder="first number" />
+        <br>
+        <br>
+        <input id="second" type="text" placeholder="second number" />
+        <br>
+        <br>
+        <button id="sum">Sum</button>
+        <br>
+        <br>
+        <div id="third"></div> 
+    </div>
+
+    <script>
+        const sum = document.getElementById("sum");
+
+        sum.addEventListener("click", addition);
+
+        function addition() {
+            const first = parseFloat(document.getElementById("first").value);
+            const second = parseFloat(document.getElementById("second").value);
+
+            const value = first + second;
+
+            const third = document.getElementById("third");
+
+            third.innerHTML = `Sum: ${value}`;
+        }
+    </script>
+    
+</body>
+</html>

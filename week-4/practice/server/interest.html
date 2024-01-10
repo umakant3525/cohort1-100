@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculation</title>
+</head>
+<body>
+    <div>
+        <input id="p" type="text" placeholder="Principle" />
+        <br>
+        <br>
+        <input id="r" type="text" placeholder="Rate" />
+        <br>
+        <br>
+        <input id="t" type="text" placeholder="Time" />
+        <br>
+        <br>
+        <button id="btn">Calculate</button>
+        <br>
+        <br>
+        <h2 id="interest"></h2> 
+        <h2 id="total"></h2> 
+
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", calculate);
+
+        async function calculate() {
+            const p = parseFloat(document.getElementById("p").value);
+            const r = parseFloat(document.getElementById("r").value);
+            const t = parseFloat(document.getElementById("t").value);
+
+            try {
+                const response = await fetch(`http://localhost:3000/interest?principal=${p}&rate=${r}&time=${t}`);
+                const ans = await response.json();
+
+                const interestElement = document.getElementById("interest");
+                interestElement.innerHTML = `Interest : ${ans.interest}`;
+
+                const totalElement = document.getElementById("total");
+                totalElement.innerHTML = `Total : ${ans.total}`;
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
