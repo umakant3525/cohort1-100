@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+
+    <div id="btnparent">
+        <!-- Initially empty; buttons will be dynamically added here -->
+    </div>
+
+    <script>
+        let state = {
+            count: 0
+        }
+
+        function onButtonPress(){
+            state.count++;
+            buttonComponentRerender();
+        }
+
+        function buttonComponentRerender(){
+            document.getElementById('btnparent').innerHTML = "";
+            const component = buttonComponent(state.count);
+            document.getElementById("btnparent").appendChild(component);
+        }
+
+        function buttonComponent(count){
+            const button = document.createElement("button");
+            button.innerHTML = `Counter ${count}`;
+            button.setAttribute("onclick","onButtonPress()")
+            return button
+        }
+
+        buttonComponentRerender();
+    </script>
+    
+</body>
+</html>
