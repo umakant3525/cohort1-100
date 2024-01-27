@@ -7,7 +7,7 @@ const initialTitles = ["header3", "header4", "header5"];
 const App = () => {
   const [titles, setTitles] = useState(initialTitles);
 
-  // Additional logic or functions can be added here
+  // React rerender is concept by react dev tool visualizatinon
 
   return (
     <div>
