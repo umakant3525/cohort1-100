@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
-import Header from './Componant/Header';
-import Rerender from './Componant/Rerender';
-
-const initialTitles = ["header3", "header4", "header5"];
 
 const App = () => {
-  const [titles, setTitles] = useState(initialTitles);
-
-  // React rerender is concept by react dev tool visualizatinon
-
   return (
     <div>
-      <Header title="header1" />
-      <Header title="header2" />
-      {titles.map((title, index) => (
-        <Header key={index} title={title} />
-      ))}
-      <Rerender />
+      <HeaderwithBtn />
+      <Header title="Header2" />
+      <Header title="Header2" />
+      <Header title="Header3" />
+      <Header title="Header4" />
     </div>
   );
 };
+
+function Header({ title }) {
+  return <div>{title}</div>;
+}
+
+function HeaderwithBtn() {
+  const [title, setTitle] = useState("My name is umakant");
+
+  function updateTitle() {
+    setTitle("My name is " + Math.random());
+  }
+
+  return (
+    <>
+      <button onClick={updateTitle}>Click</button>
+      <Header title={title} />
+    </>
+  );
+}
 
 export default App;
