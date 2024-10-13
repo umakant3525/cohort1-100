@@ -1,0 +1,1 @@
+Here is comparision between class based and functional based components to do same work in the era of react 16.8 
