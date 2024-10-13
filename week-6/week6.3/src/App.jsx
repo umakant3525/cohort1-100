@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "./App.css";
+import UseEffect from "./UseEffect";
+import UseMemo from "./UseMemo";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [exchangeData, setExchangeData] = useState({});
-  const [bankData, setBankData] = useState({});
-
-  useEffect(() => {
-    setTimeout(() => {
-      setBankData({ income: 100 });
-    }, 3000);
-  });
-
-  useEffect(() => {
-    setTimeout(() => {
-      setExchangeData({ returns: 100 });
-    }, 1000);
-  });
-
-  const incomeTax = (bankData.income + exchangeData.returns) * 0.3;
+ 
   return (
     <>
       {/* Here is your usestate code  */}
@@ -31,7 +18,9 @@ function App() {
       </div>
 
       {/* Here is the useEffect logic goes  */}
-      <h3>Income tax : {incomeTax}</h3>
+    <UseEffect/>
+      {/* here is usememo logic goes  */}
+      <UseMemo/>
     </>
   );
 }
